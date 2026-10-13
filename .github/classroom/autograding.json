@@ -1,0 +1,26 @@
+{
+  "tests": [
+    {
+      "name": "small test",
+      "setup": "gcc main.c heap.c -lm",
+      "run": "/usr/bin/timeout -k 1s -s 9 1s ./a.out",
+      "input": "100\r\nPUT zzg 86\r\nPUT zvkqgcewkdvvlc 798\r\nPUT vmhzmu 848\r\nGET\r\nPUT wyuizpu 713\r\nPUT uthzqdnu 455\r\nGET\r\nPUT ecvqxggssero 161\r\nPUT jicifwpe 331\r\nPUT jtleop 958\r\nGET\r\nGET\r\nGET\r\nPUT ymurciigtq 73\r\nPUT grexnxigjmxyx 971\r\nPUT eweq 145\r\nPUT dfawylavttzs 941\r\nGET\r\nGET\r\nGET\r\nPUT mimw 912\r\nPUT nwsivnl 538\r\nGET\r\nPUT cjy 167\r\nGET\r\nGET\r\nPUT z 188\r\nGET\r\nGET\r\nGET\r\nGET\r\nPUT ki 747\r\nPUT ihgewtho 741\r\nPUT o 241\r\nPUT k 36\r\nPUT abu 517\r\nGET\r\nPUT awp 406\r\nGET\r\nPUT cfvxolcadqluix 578\r\nPUT fndndrrf 717\r\nPUT misrppo 547\r\nGET\r\nPUT ekratpdhakufzz 656\r\nGET\r\nPUT zabjvuaklgnd 488\r\nGET\r\nPUT t 274\r\nGET\r\nGET\r\nPUT imfhoexstyvwjq 872\r\nPUT esphfixob 623\r\nGET\r\nPUT jhpoofu 649\r\nGET\r\nGET\r\nPUT ly 597\r\nPUT pkceui 222\r\nPUT sejsgsb 958\r\nPUT ccictwwfujne 491\r\nGET\r\nPUT srvnporyiytjvdd 565\r\nPUT cbiaiclwjluq 991\r\nPUT lbyztyhtrtqv 865\r\nGET\r\nPUT ug 773\r\nPUT wilfufxmtixui 874\r\nPUT iiadzxcrcmmjgjy 445\r\nPUT mnolzjuzfcavlif 601\r\nPUT jqym 945\r\nGET\r\nGET\r\nPUT tqocceso 18\r\nPUT cimcfanlm 708\r\nPUT trjzde 368\r\nPUT drdiv 142\r\nPUT aidj 55\r\nPUT wwb 743\r\nGET\r\nPUT uorvuyiuzon 670\r\nPUT awjbgmmcvcbs 227\r\nPUT dtmrnhnlsikgv 482\r\nPUT qaprgdf 87\r\nPUT lsnz 341\r\nGET\r\nPUT k 512\r\nGET\r\nGET\r\nGET\r\nPUT fhfullmncftfkgf 405\r\nGET\r\nPUT skynikwrh 8\r\nPUT wawsojfbnmxu 64\r\nPUT pwzwrj 513\r\nGET\r\nPUT cnqtghrifmwq 908\r\nPUT fvzcaat 757\r\nPUT pnovjvywntewlmb 96\r\nGET\r\nGET\r\n",
+      "output": "zzg\r\nuthzqdnu\r\necvqxggssero\r\njicifwpe\r\nwyuizpu\r\nymurciigtq\r\neweq\r\nzvkqgcewkdvvlc\r\nnwsivnl\r\ncjy\r\nvmhzmu\r\nz\r\nmimw\r\ndfawylavttzs\r\njtleop\r\nk\r\no\r\nawp\r\nabu\r\nzabjvuaklgnd\r\nt\r\nmisrppo\r\ncfvxolcadqluix\r\nesphfixob\r\njhpoofu\r\npkceui\r\nccictwwfujne\r\niiadzxcrcmmjgjy\r\nsrvnporyiytjvdd\r\ntqocceso\r\naidj\r\nqaprgdf\r\ndrdiv\r\nawjbgmmcvcbs\r\nlsnz\r\nskynikwrh\r\nwawsojfbnmxu\r\npnovjvywntewlmb\r\n",
+      "comparison": "exact",
+      "timeout": 1,
+      "points": 5
+    },
+
+{
+  "name": "Large test",
+  "setup": "gcc main.c heap.c -lm -o heap_test && /usr/bin/timeout -k 4s -s 9 4s ./heap_test < input.txt > actual_output.txt",
+  "run": "diff -q actual_output.txt output.txt",
+  "input": "",
+  "output": "",
+  "comparison": "exact",
+  "timeout": 10,
+  "points": 5
+}
+
+  ]
+}
