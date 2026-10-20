@@ -68,7 +68,7 @@ void insert(Heap *p, const Msg x)
 
 Msg delMin(Heap *p)
 {
-    Msg result = p->h_arr[0];
+    Msg min = p->h_arr[0];
 
     p->h_len--;
 
@@ -77,5 +77,5 @@ Msg delMin(Heap *p)
         sink(p, 0);
     }
 
-    return result;
+    return min;
 }
