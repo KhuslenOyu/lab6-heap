@@ -21,11 +21,12 @@ int main()
                         x.time = i;
                         insert(&hp, x);
                 } else if (strcmp(cmd, "GET") == 0) {
-                    if (hp.h_len > 0) {
-                        x = delMin(&hp);
-                        printf("%s\n", x.text);
-                    }
-                }
-        
-        return 0;  // EXIT 0 амжилттай дууслаа
+            if (hp.h_len > 0) {
+                x = delMin(&hp);
+                printf("%s\n", x.text);
+            }
+        }
+    }
+
+    return 0;
 }
