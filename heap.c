@@ -10,9 +10,15 @@ static void sink(Heap *p, int);
 */
 int less(const Msg *a, const Msg *b)
 {
-        // Энд жиших үйлдийг хийнэ
+  if(a->priority !=priority)
+      return a->priority > b->priority;
+  return a->time > b->time;
 }
-
+static void exch(Heap *p, int i, int j){
+  Msg tmp = p->h_arr[i];
+  p->h_arr[i] = p->h_arr[j];
+  p->h_arr[j] = tmp;
+}
 /*
   Оруулах функц. heap зарчмаар чухлын дарааллыг баримтлан оруулна.
   Ингэхдээ хамгийн чухал зурвас heap-ын оройд хадгалагдана.
@@ -20,7 +26,9 @@ int less(const Msg *a, const Msg *b)
  */
 void insert(Heap *p, const Msg x)
 {
-        // Энд оруулах үйлдлийг хийнэ
+    p->h_arr[p->h_len] = x;
+    p->h_len++;
+    swim(p, p->h_len-1);
 }
 
 /*
@@ -29,7 +37,11 @@ void insert(Heap *p, const Msg x)
  */
 static void swim(Heap *p, int k)
 {
-        // Энд swim үйлдлийг хийнэ
+    while (k > 0 && less(&p->h_arr[(k - 1) / 2], &p->h_arr[k]))
+    {
+        exch(p, k, (k - 1) / 2);
+        k = (k - 1) / 2;
+    }
 }
 
 /*
@@ -38,7 +50,17 @@ static void swim(Heap *p, int k)
  */
 static void sink(Heap *p, int k)
 {
-        // Энд sink үйлдлийг хийнэ
+  int n = p->h_len;
+  while(2*k + 1 <n)
+  {
+    int j = 2 * k + 1;
+    if (j + 1 < n && less(&p->h_arr[j], &p->h_arr[j + 1]))
+            j++; 
+    if (!less(&p->h_arr[k], &p->h_arr[j]))
+            break;
+    exch(p, k, j);
+        k = j;
+  }
 }
 
 /*
@@ -47,6 +69,10 @@ static void sink(Heap *p, int k)
  */
 Msg delMin(Heap *p)
 {
-        // Энд хамгийн багыг гаргах үйлдлийг хийнэ
+  Msg min = p->h_arr[0];
+  p->h_len--;
+  p->h_arr[0] = p->h_arr[p->h-len];
+  sink(p, 0);
+  return min;
 }
 
